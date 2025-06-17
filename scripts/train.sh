@@ -13,7 +13,7 @@
 # --seq_len 128 \
 # --schedule_sampler lossaware \
 # --notes test-qqp
-python run_train.py \
+python -m torch.distributed.launch --nproc_per_node=1 --master_port=12233 --use_env run_train.py \
 --diff_steps 200 \
 --lr 5e-5 \
 --learning_steps 4000 \
